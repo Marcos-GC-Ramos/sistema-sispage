@@ -1,0 +1,56 @@
+.pointStatusRoot {
+  --color-neutral: oklch(14% .005 285.823);
+  --color-info: oklch(49.338% 0.2837 263.98);
+  --color-error: oklch(71% .194 13.428);
+  --radius-selector: .5rem;
+  --radius-field: .25rem;
+  --radius-box: .5rem;
+  --size-selector: .25rem;
+  --size-field: .25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Cores do point-status */
+.pointStatusNeutral {
+    background-color: var(--color-neutral);
+    color: var(--color-neutral);
+}
+
+.pointStatusInfo {
+    background-color: var(--color-info);
+    color: var(--color-info);
+}
+
+.pointStatusError {
+    background-color: var(--color-error);
+    color: var(--color-error);
+}
+
+/* Tamanhos do point-status */
+.pointStatusMd {
+    width: .5rem;
+    height: .5rem;
+}
+
+.pointStatusLg {
+    width: .75rem;
+    height: .75rem;
+}
+
+.pointStatusXl {
+    width: 1rem;
+    height: 1rem;
+}
+
+.pointStatus{    
+    aspect-ratio: 1;
+    border-radius: var(--radius-selector);
+    vertical-align: middle;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 35% 30%, oklch(1 0 0 / calc(var(--depth) * .5)), #0000);
+    box-shadow: 0 2px 3px -1px color-mix(in oklab, currentColor calc(var(--depth) * 100%), #0000);
+    display: inline-block;
+}

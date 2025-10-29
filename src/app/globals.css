@@ -1,26 +1,99 @@
 @import "tailwindcss";
+@import url("/font/stylesheet.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cor--primaria: #00112F;
+  --cor--secundaria: #0F1922;
+  --cor-de-fundo: #E4E4E4;
+  --cor-card: #ffffff;
+  --font-padrao: 'Geomanist';
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/font/Geomanist-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/font/Geomanist-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/Geomanist-Regular.woff2') format('woff2'),
+       url('/font/Geomanist-Regular.woff') format('woff'),
+       url('/font/Geomanist-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html, body, main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Geomanist', sans-serif;
+}
+
+.estrutura-pagina {
+  height: auto;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 1fr;
+  transition: 0.3s ease-in-out;
+}
+
+.gradiente-card-table::before {
+  background: #122A56
+}
+
+.bg-blue{
+  background-color: #A4CAFE40 !important;
+}
+
+.shadow-ps {
+  box-shadow: 0 0 15px rgba(187, 187, 187, 0.6);
+}
+
+.font-inter{
+  font-family: "Inter", sans-serif !important;
+}
+
+.shadow-inset-center {
+	-webkit-animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes shadow-inset-center {
+  0% {
+    -webkit-box-shadow: inset 0 0 0 0 rgba(222, 222, 222, 0);
+            box-shadow: inset 0 0 0 0 rgba(222, 222, 222, 0);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 14px 0px #DEDEDE;
+            box-shadow: inset 0 0 14px 0px #DEDEDE;
+  }
+}
+@keyframes shadow-inset-center {
+  0% {
+    -webkit-box-shadow: inset 0 0 0 0 rgba(222, 222, 222, 0);
+            box-shadow: inset 0 0 0 0 rgba(222, 222, 222, 0);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 14px 0px #DEDEDE;
+            box-shadow: inset 0 0 14px 0px #DEDEDE;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-gradiente-login {
+  background-color: #1866b5;
+  background: 
+    url('/img/backgrounds/background-login.png');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+/*  Tablet  */
+@media (min-width: 768px) {}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .estrutura-pagina {
+        height: 100vh;
+        grid-template-columns: 100px 1fr;
+    }
 }
