@@ -1,4 +1,6 @@
 import { SeparateLayout } from "./SeparateLayout";
+
+import "./reset.css"; 
 import "./globals.css";
 
 export default function RootLayout({

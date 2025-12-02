@@ -56,7 +56,7 @@ export default function CardPainel({
         {permissao && (
           <div className="absolute inset-0 z-50 bg-[#000000]/20 backdrop-blur-[25px] rounded-[5px] flex justify-center items-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-autotransition-opacity duration-300">
             <svg
-              className="w-10 h-10 text-[#CED2FF]"
+              className="w-10 h-10 text-[#dfe9ff]"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

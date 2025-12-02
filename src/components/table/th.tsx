@@ -10,7 +10,6 @@ interface ThProps {
 export default function Th({
   className = "",
   children,
-  ...props
 }: ThProps) {
     return(
     <th scope="col" className={`px-6 py-3 align-middle text-left ${className}`}>

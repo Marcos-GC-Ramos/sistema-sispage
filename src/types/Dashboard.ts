@@ -1,10 +1,4 @@
-export interface Categoria {
-  id: number;
-  nome: string;
-  descricao: string;
-  created_at: string;
-  updated_at: string;
-}
+import { Categoria } from "./Categorias";
 
 export interface Option {
   value: string;

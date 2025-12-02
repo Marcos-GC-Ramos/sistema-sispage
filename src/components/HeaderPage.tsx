@@ -4,13 +4,10 @@ type HeaderPageProps = {
   children: ReactNode;
 } 
 
-export default function HeaderPage({
-  children,
-  ...props
-}: HeaderPageProps) {
-    return(
-        <header className="pl-6 flex items-center justify-between my-10">
-            {children}
-        </header>
-    )
+export default function HeaderPage({children}: HeaderPageProps) {
+  return(
+    <header className="px-6 flex items-center justify-between mt-10 mb-8">
+      {children}
+    </header>
+  )
 }

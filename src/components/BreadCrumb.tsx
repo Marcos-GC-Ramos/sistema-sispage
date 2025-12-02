@@ -20,7 +20,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
             <React.Fragment key={index}>
               {index > 0 && (
                 <svg
-                  className="w-3 h-3 text-gray-400 mx-1.5"
+                  className="w-2.5 h-2.5 text-gray-400 mx-1 -mt-1"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -37,7 +37,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
               )}
 
               <li
-                className={`inline-flex items-center ${isLast ? '' : 'flex items-center'}`}
+                className={`group/link inline-flex items-center ${isLast ? '' : 'flex items-center'}`}
                 aria-current={isLast ? 'page' : undefined}
               >
                 {item.href ? (
@@ -51,7 +51,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                   >
                     {index === 0 && (
                       <svg
-                        className="w-3 h-3 me-1.5"
+                        className="w-2.5 h-2.5 text-gray-400 me-1 -mt-1 group-hover/link:text-gray-700"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"

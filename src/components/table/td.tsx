@@ -10,7 +10,6 @@ interface TdProps {
 export default function Td({
   className = "",
   children,
-  ...props
 }: TdProps) {
     return(
     <td scope="col" className={`px-6 py-2 text-gray-600 align-middle text-left ${className}`}>

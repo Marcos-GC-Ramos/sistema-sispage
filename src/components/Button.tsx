@@ -50,7 +50,12 @@ export default function Button({
         <svg
           aria-hidden="true"
           role="status"
-          className="inline w-5 h-5 text-gray-600 animate-spin"
+          className={`${{
+            sm: "w-4 h-4",
+            md: "w-5 h-5",
+            lg: "w-6 h-6",
+          }[size || "md"]} inline text-gray-600 animate-spin`}
+
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

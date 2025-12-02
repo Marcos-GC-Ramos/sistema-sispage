@@ -8,10 +8,9 @@ interface TheadProps {
 
 export default function Thead({
   children,
-  ...props
 }: TheadProps) {
     return(
-        <thead className="text-xs text-gray-700 uppercase bg-[#F0F1F4] w-full">
+        <thead className="text-xs text-gray-700 uppercase bg-[#F0F1F4]">
             <tr className="border-b border-[#D9D9D9]">
                 {children }
             </tr>

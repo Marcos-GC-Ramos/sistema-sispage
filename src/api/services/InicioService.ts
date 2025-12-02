@@ -1,7 +1,8 @@
 import api from "../AxiosConfig";
 import Cookies from "js-cookie";
 import apiRoutes from "../ApiRoutes";
-import { Categoria, Option, DashboardResponse } from "@/types/Dashboard";
+import { Option, DashboardResponse } from "@/types/Dashboard";
+import { Categoria } from "@/types/Categorias";
 
 export async function getUserDashboard(
   search?: string,

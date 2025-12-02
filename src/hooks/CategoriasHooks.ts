@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Categoria, Pagination, CategoriasResponse } from "@/types/Categorias";
 import { getCategorias } from "@/api/services/CategoriasService";
 
@@ -16,46 +14,44 @@ export function CategoriasHooks() {
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
-  const fetchCategorias = async (
-    page = 1,
-    per_page = perPage,
-    searchTerm = search
-  ) => {
-    setLoading(true);
+  const fetchCategorias = useCallback(
+    async (page = 1, per_page = perPage, searchTerm = search) => {
+      setLoading(true);
 
-    const response: CategoriasResponse = await getCategorias({
-      page,
-      per_page,
-      search: searchTerm,
-    });
+      const response: CategoriasResponse = await getCategorias({
+        page,
+        per_page,
+        search: searchTerm,
+      });
 
-    setCategorias(response.data);
-    setPagination(response.pagination);
+      setCategorias(response.data);
+      setPagination(response.pagination);
 
-    // Espera 500ms para mostrar o dashboards apos a requisição
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  };
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    },
+    [perPage, search] // dependências reais usadas dentro da função
+  );
 
-  // inicial: carrega sem filtro
+  // inicial
   useEffect(() => {
     fetchCategorias();
-  }, []);
+  }, [fetchCategorias]);
 
-  // quando mudar perPage, recarrega
+  // quando mudar perPage
   useEffect(() => {
     fetchCategorias(1, perPage, search);
-  }, [perPage]);
+  }, [perPage, search, fetchCategorias]);
 
   // debounce para search
   useEffect(() => {
     const delay = setTimeout(() => {
       fetchCategorias(1, perPage, search);
-    }, 600); // 500ms de espera após parar de digitar
+    }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage]);
+  }, [search, perPage, fetchCategorias]);
 
   return {
     categorias,

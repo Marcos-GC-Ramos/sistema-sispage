@@ -22,7 +22,7 @@ export default function SidebarItem({
       <li>
         <a onClick={onClick} className={classes}>
           {icon}
-          <span className="text-opcao hidden">{label}</span>
+          <span className="mt-[4px] text-opcao hidden">{label}</span>
         </a>
       </li>
     );
@@ -32,7 +32,7 @@ export default function SidebarItem({
     <li>
       <Link href={href} className={classes}>
         {icon}
-        <span className="text-opcao hidden">{label}</span>
+        <span className="mt-[4px] text-opcao hidden">{label}</span>
       </Link>
     </li>
   );
