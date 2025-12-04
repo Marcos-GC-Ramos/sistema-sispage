@@ -1,11 +1,8 @@
 "use client";
 
-import { Option } from "@/types/Dashboard";
 import { useCategoriasContext } from "@/context/CategoriasContext";
 
 import CardTable from "@/components/card/CardTable";
-import Input from "@/components/input/Input";
-import Select from "@/components/select/Select";
 import Table from "@/components/table/table";
 import Tbody from "@/components/table/tbody";
 import Td from "@/components/table/td";
@@ -13,6 +10,7 @@ import Th from "@/components/table/th";
 import Thead from "@/components/table/thead";
 import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
+import Filters from "@/components/table/filters";
 
 export default function TabelaCategorias() {
   const {
@@ -26,33 +24,16 @@ export default function TabelaCategorias() {
     fetchCategorias,
   } = useCategoriasContext();
 
-  const qtdPorPagina: Option[] = [
-    { value: "10", label: "10" },
-    { value: "50", label: "50" },
-    { value: "100", label: "100" },
-  ];
-
   return (
     <CardTable titulo="Listagem das categorias">
 
-      <div className="w-full flex justify-between gap-5 mb-5">
-        <Select
-          id="qtdPorPagina"
-          options={qtdPorPagina}
-          value={String(perPage)}
-          onChange={(e) => setPerPage(Number(e.target.value))}
-          className="w-[50px]! text-center!"
-        />
-
-        <div className="w-[300px]">
-          <Input
-              type="text"
-              placeholder="Pesquisar por nome..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </div>  
+      <Filters
+        perPage={perPage}
+        setPerPage={setPerPage}
+        search={search}
+        setSearch={setSearch}
+        searchPlaceholder="Buscar pelo nome da categoria..."
+      />
 
       <Table>
         <Thead>
@@ -62,12 +43,21 @@ export default function TabelaCategorias() {
             <Th>Ações</Th>
         </Thead>
         {loading ? 
-        <Tbody><></></Tbody>
+        <Tbody>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <Tr key={i}>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-50 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-100 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
+            </Tr>
+          ))}
+        </Tbody> 
         :
         <Tbody>
           {categorias.map((cat) => (
             <Tr key={cat.id}>
-              <Td>{cat.id}</Td>
+              <Td className="text-[#111827]">{cat.id}</Td>
               <Td>{cat.nome}</Td>
               <Td>{cat.descricao}</Td>
               <Td>{cat.descricao}</Td>

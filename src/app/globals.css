@@ -1,7 +1,17 @@
+@import url("/public/font/stylesheet.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-@import url("/font/stylesheet.css");
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/font/Geomanist-Regular.eot');
+  src: url('/font/Geomanist-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/font/Geomanist-Regular.woff2') format('woff2'),
+       url('/font/Geomanist-Regular.woff') format('woff'),
+       url('/font/Geomanist-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --cor--primaria: #00112F;
@@ -9,17 +19,6 @@
   --cor-de-fundo: #E4E4E4;
   --cor-card: #ffffff;
   --font-padrao: 'Geomanist';
-}
-
-@font-face {
-  font-family: 'Geomanist';
-  src: url('/font/Geomanist-Regular.eot'); /* IE9 Compat Modes */
-  src: url('/font/Geomanist-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/font/Geomanist-Regular.woff2') format('woff2'),
-       url('/font/Geomanist-Regular.woff') format('woff'),
-       url('/font/Geomanist-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 html, body, main {

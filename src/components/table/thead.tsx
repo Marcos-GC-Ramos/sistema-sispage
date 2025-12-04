@@ -9,11 +9,9 @@ interface TheadProps {
 export default function Thead({
   children,
 }: TheadProps) {
-    return(
-        <thead className="text-xs text-gray-700 uppercase bg-[#F0F1F4]">
-            <tr className="border-b border-[#D9D9D9]">
-                {children }
-            </tr>
-        </thead>
-    )
+  return(
+    <thead className="text-xs text-[#111827] uppercase bg-[#F0F1F4]">
+      <tr className="border-b border-[#D1D5DB]">{children}</tr>
+    </thead>
+  )
 }

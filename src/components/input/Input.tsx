@@ -24,7 +24,7 @@ export default function Input({
       ? "p-2 text-xs"
       : uiSize === "lg"
       ? "p-4 text-base"
-      : "p-2.5 text-sm"; // md padrão
+      : "p-2.5 text-sm";
 
   return (
     <div>

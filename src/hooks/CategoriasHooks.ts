@@ -10,6 +10,7 @@ export function CategoriasHooks() {
     current_page: 1,
     last_page: 1,
   });
+
   const [perPage, setPerPage] = useState<number>(10);
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -29,29 +30,25 @@ export function CategoriasHooks() {
 
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 600);
     },
-    [perPage, search] // dependências reais usadas dentro da função
+    [perPage, search]
   );
 
-  // inicial
-  useEffect(() => {
-    fetchCategorias();
-  }, [fetchCategorias]);
-
-  // quando mudar perPage
+  // Primeiro carregamento
   useEffect(() => {
     fetchCategorias(1, perPage, search);
-  }, [perPage, search, fetchCategorias]);
+  }, []);
 
-  // debounce para search
+  // Debounce search + perPage
   useEffect(() => {
     const delay = setTimeout(() => {
       fetchCategorias(1, perPage, search);
     }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage, fetchCategorias]);
+  }, [search, perPage]);
+
 
   return {
     categorias,

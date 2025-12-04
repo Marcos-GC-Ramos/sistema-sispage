@@ -12,7 +12,7 @@ export default function Td({
   children,
 }: TdProps) {
     return(
-    <td scope="col" className={`px-6 py-2 text-gray-600 align-middle text-left ${className}`}>
+    <td scope="col" className={`px-6 py-2 text-[#4B5563] align-middle text-left ${className}`}>
         {children}
     </td>
     )
