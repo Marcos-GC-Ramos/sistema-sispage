@@ -145,7 +145,7 @@ export default function Sidebar({ setGridColumns }: SidebarProps) {
 
                 <span className="text-opcao hidden cursor-default p-[5px_5px_5px_28px] text-[12px] font-normal text-[#8298C1]"> Área Administrativa </span>
 
-                <SidebarItem href="/paineis" sidebarWidth={sidebarWidth} label="Paineis"
+                <SidebarItem href="/dashboards" sidebarWidth={sidebarWidth} label="Dashboards"
                   icon={
                     <svg className="w-6 h-6 text-[#D7E5FF]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M5 3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm14 18a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4ZM5 11a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H5Zm14 2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4Z"/>

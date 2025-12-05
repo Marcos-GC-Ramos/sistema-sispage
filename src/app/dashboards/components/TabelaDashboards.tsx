@@ -1,6 +1,6 @@
 "use client";
 
-import { useCategoriasContext } from "@/context/CategoriasContext";
+import { useDashboardsContext } from "@/context/DashboardsContext";
 
 import CardTable from "@/components/card/CardTable";
 import Table from "@/components/table/table";
@@ -12,34 +12,36 @@ import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
 
-export default function TabelaCategorias() {
+export default function TabelaDashboards() {
   const {
-    categorias,
+    dashboards,
     pagination,
     perPage,
     setPerPage,
     search,
     setSearch,
     loading,
-    fetchCategorias,
-  } = useCategoriasContext();
+    fetchDashboards,
+  } = useDashboardsContext();
 
   return (
-    <CardTable titulo="Listagem das categorias">
+    <CardTable titulo="Listagem das Dashboards">
 
       <Filters
         perPage={perPage}
         setPerPage={setPerPage}
         search={search}
         setSearch={setSearch}
-        searchPlaceholder="Buscar pelo nome da categoria..."
+        searchPlaceholder="Buscar pelo nome do dashboard..."
       />
 
-      <Table>
+      <Table className="">
         <Thead>
             <Th>ID</Th>
-            <Th>Nome</Th>
-            <Th>Descrição</Th>
+            <Th className="!w-[350px] !min-w-[300px]">Nome</Th>
+            <Th className="!w-[500px] !max-w-[500px] !min-w-[500px]">Descrição</Th>
+            <Th>Categoria</Th>
+            <Th>Atualizado</Th>
             <Th>Ações</Th>
         </Thead>
         {loading ? 
@@ -55,20 +57,22 @@ export default function TabelaCategorias() {
         </Tbody> 
         :
         <Tbody>
-          {categorias.length != 0 ?
+          {dashboards.length != 0 ?
           <>
-            {categorias.map((cat) => (
-              <Tr key={cat.id}>
-                <Td className="text-[#111827]">{cat.id}</Td>
-                <Td>{cat.nome}</Td>
-                <Td>{cat.descricao}</Td>
+            {dashboards.map((dash) => (
+              <Tr key={dash.id}>
+                <Td className="text-[#111827]">{dash.id}</Td>
+                <Td>{dash.nome}</Td>
+                <Td>{dash.descricao}</Td>
+                <Td>{dash.categoria.nome}</Td>
+                <Td>{new Date(dash.updated_at).toLocaleDateString("pt-BR")}</Td>
                 <Td>N/A</Td>
               </Tr>
             ))}
           </>
           : 
             <Tr>
-              <Td colspan={4} className="text-[#111827] !text-center py-4">Não ha nenhuma categoria</Td>
+              <Td colspan={4} className="text-[#111827] !text-center py-4">Não ha nenhuma dashboard</Td>
             </Tr>
           }
         </Tbody>
@@ -76,12 +80,12 @@ export default function TabelaCategorias() {
       </Table>
 
       <Pagination
-        tituloDado="Categorias"
+        tituloDado="Dashboards"
         currentPage={pagination.current_page}
         perPage={pagination.per_page}
         total={pagination.total}
         lastPage={pagination.last_page}
-        onPageChange={(page) => fetchCategorias(page)}
+        onPageChange={(page) => fetchDashboards(page)}
       />
     </CardTable>
   );

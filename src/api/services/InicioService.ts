@@ -1,13 +1,13 @@
 import api from "../AxiosConfig";
 import Cookies from "js-cookie";
 import apiRoutes from "../ApiRoutes";
-import { Option, DashboardResponse } from "@/types/Dashboard";
+import { Option, DashboardsInicioResponse } from "@/types/Dashboard";
 import { Categoria } from "@/types/Categorias";
 
 export async function getUserDashboard(
   search?: string,
   categoriaId?: number
-): Promise<DashboardResponse | null> {
+): Promise<DashboardsInicioResponse | null> {
   try {
     const userId = Cookies.get("userID");
     if (!userId) throw new Error("Usuário não está logado");

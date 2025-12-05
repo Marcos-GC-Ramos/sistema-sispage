@@ -5,7 +5,7 @@ const apiRoutes = {
     user: "/api/auth-user",
   },
   inicio: {
-    index: "/api/paineis",
+    index: "/api/inicio",
     show: (id: number) => `/api/user-dashboard/${id}`,
   },
   usuarios: {
@@ -15,9 +15,8 @@ const apiRoutes = {
     update: (id: number) => `/api/usuarios/${id}`, 
     delete: (id: number) => `/api/usuarios/${id}`,
   },
-  paineis: {
-    index: "/api/paineis",
-    show: (id: number) => `/api/paineis/${id}`,
+  dashboards: {
+    index: "/api/dashboards",
   },
   permissao: {
     create: (id: number) => `/api/solicitar-acesso/${id}`,

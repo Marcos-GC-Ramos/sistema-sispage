@@ -1,20 +1,20 @@
 import api from "../AxiosConfig";
 import apiRoutes from "../ApiRoutes";
-import { CategoriasResponse } from "@/types/Categorias";
+import { DashboardsResponse } from "@/types/Dashboard";
 
-interface GetCategoriasParams {
+interface GetDashboardsParams {
   page?: number;
   per_page?: number;
   search?: string;
 }
 
-export async function getCategorias({
+export async function getDashboards({
   page = 1,
   per_page = 10,
   search = "",
-}: GetCategoriasParams): Promise<CategoriasResponse> {
+}: GetDashboardsParams): Promise<DashboardsResponse> {
   try {
-    const response = await api.get(apiRoutes.categorias.index, {
+    const response = await api.get(apiRoutes.dashboards.index, {
       params: { page, per_page, search },
     });
 
@@ -23,7 +23,7 @@ export async function getCategorias({
       pagination: response.data.pagination,
     };
   } catch (error: unknown) {
-    console.error("Erro ao buscar categorias:", error);
+    console.error("Erro ao buscar dashboards:", error);
 
     return {
       data: [],

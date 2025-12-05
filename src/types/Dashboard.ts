@@ -10,6 +10,13 @@ export interface Solicitacao {
   status_suporte: string;
 }
 
+export interface Pagination {
+  total: number;
+  per_page: number;
+  current_page: number;
+  last_page: number;
+}
+
 export interface Dashboard {
   id: number;
   categoria_id: number;
@@ -24,7 +31,12 @@ export interface Dashboard {
   solicitacao: Solicitacao[];
 }
 
-export interface DashboardResponse {
+export interface DashboardsInicioResponse {
   com_permissao: Dashboard[];
   sem_permissao: Dashboard[];
+}
+
+export interface DashboardsResponse{
+  data: Dashboard[];
+  pagination: Pagination;
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { DashboardResponse, Option} from "@/types/Dashboard";
+import { DashboardsInicioResponse, Option} from "@/types/Dashboard";
 import { getUserDashboard, getCategoriasSelect } from "@/api/services/InicioService";
 
 export function InicioHooks(initialSearch = "") {
-  const [dashboards, setDashboards] = useState<DashboardResponse | null>(null);
+  const [dashboards, setDashboards] = useState<DashboardsInicioResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [search, setSearch] = useState<string>(initialSearch);
   const [categorias, setCategorias] = useState<Option[]>([]);
@@ -16,6 +16,7 @@ export function InicioHooks(initialSearch = "") {
     const data = await getUserDashboard(filter, categoriaParam);
 
     setDashboards(data);
+    console.log(data);
 
     // Espera 500ms para mostrar o dashboards apos a requisição
     setTimeout(() => {
