@@ -11,6 +11,7 @@ import Thead from "@/components/table/thead";
 import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
+import Image from "next/image";
 
 export default function TabelaDashboards() {
   const {
@@ -37,7 +38,7 @@ export default function TabelaDashboards() {
 
       <Table className="">
         <Thead>
-            <Th>ID</Th>
+            <Th className="!w-[110px]">ID</Th>
             <Th className="!w-[350px] !min-w-[300px]">Nome</Th>
             <Th className="!w-[500px] !max-w-[500px] !min-w-[500px]">Descrição</Th>
             <Th>Categoria</Th>
@@ -51,6 +52,8 @@ export default function TabelaDashboards() {
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-50 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-100 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
             </Tr>
           ))}
@@ -72,7 +75,7 @@ export default function TabelaDashboards() {
           </>
           : 
             <Tr>
-              <Td colspan={4} className="text-[#111827] !text-center py-4">Não ha nenhuma dashboard</Td>
+              <Td colspan={6} className="text-[#111827] !text-center py-4">Não ha nenhum dashboard</Td>
             </Tr>
           }
         </Tbody>

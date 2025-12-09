@@ -1,0 +1,9 @@
+services:
+  sistema-sispage:
+    build: .
+    container_name: sistema-sispage
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: "http://172.16.15.223"

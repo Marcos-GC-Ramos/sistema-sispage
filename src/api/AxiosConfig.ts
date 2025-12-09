@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 // Cria uma instância do Axios
 const api = axios.create({
-  baseURL: 'http://172.16.15.223',
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 // Interceptor para adicionar o token em todas as requisições
