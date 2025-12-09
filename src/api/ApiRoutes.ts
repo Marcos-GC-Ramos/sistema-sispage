@@ -9,16 +9,18 @@ const apiRoutes = {
     show: (id: number) => `/api/user-dashboard/${id}`,
   },
   usuarios: {
-    index: "/api/usuarios",       
-    show: (id: number) => `/api/usuarios/${id}`, 
-    create: "/api/usuarios",     
-    update: (id: number) => `/api/usuarios/${id}`, 
-    delete: (id: number) => `/api/usuarios/${id}`,
+    index: "/api/users",       
+    show: (id: number) => `/api/users/${id}`, 
+    create: "/api/create-user",     
+    update: (id: number) => `/api/update-user/${id}`, 
+    delete: (id: number) => `/api/delete-user/${id}`,
   },
   dashboards: {
     index: "/api/dashboards",
   },
   permissao: {
+    index: "/api/solicitacoes",
+    getAuthSolicitacoes: "/api/auth-solicitacao",
     create: (id: number) => `/api/solicitar-acesso/${id}`,
   },
   categorias: {

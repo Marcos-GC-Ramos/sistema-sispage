@@ -11,7 +11,6 @@ import Thead from "@/components/table/thead";
 import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
-import Image from "next/image";
 
 export default function TabelaDashboards() {
   const {
@@ -26,14 +25,14 @@ export default function TabelaDashboards() {
   } = useDashboardsContext();
 
   return (
-    <CardTable titulo="Listagem das Dashboards">
+    <CardTable titulo="Listagem dos Dashboards">
 
       <Filters
         perPage={perPage}
         setPerPage={setPerPage}
         search={search}
         setSearch={setSearch}
-        searchPlaceholder="Buscar pelo nome do dashboard..."
+        searchPlaceholder="Buscar pelo nome do dashboard ou ID..."
       />
 
       <Table className="">

@@ -1,30 +1,15 @@
 import { Metadata } from "next";
-import Breadcrumb from "@/components/BreadCrumb"
-import CardTable from "@/components/card/CardTable";
-import HeaderPage from "@/components/HeaderPage"
+import UsuariosContent from "./UsuarioContent";
+import { UsuariosProvider } from "@/context/UsuariosContext";
 
 export const metadata: Metadata = {
-  title: "SISPAGE - Usuarios",
+  title: "SISPAGE - Usuários",
 };
 
-
-export default function Usuarios(){
-    return (
-        <>
-        <HeaderPage>
-            <Breadcrumb
-            items={[
-                { label: 'Início', href: '/inicio' },
-                { label: 'Usuarios', href: '/usuarios' },
-            ]}
-            />
-
-            <div></div>
-        </HeaderPage>
-
-        <CardTable titulo="Listagem das usuarios">
-            <h1>teste</h1>
-        </CardTable>
-        </>
-    );
+export default function Usuarios() {
+  return (
+    <UsuariosProvider>
+      <UsuariosContent />
+    </UsuariosProvider>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCategoriasContext } from "@/context/CategoriasContext";
+import { useUsuariosContext } from "@/context/UsuariosContext";
 
 import CardTable from "@/components/card/CardTable";
 import Table from "@/components/table/table";
@@ -12,34 +12,34 @@ import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
 
-export default function TabelaCategorias() {
+export default function TabelaUsuarios() {
   const {
-    categorias,
+    usuarios,
     pagination,
     perPage,
     setPerPage,
     search,
     setSearch,
     loading,
-    fetchCategorias,
-  } = useCategoriasContext();
+    fetchUsuarios,
+  } = useUsuariosContext();
 
   return (
-    <CardTable titulo="Listagem das Categorias">
+    <CardTable titulo="Listagem das Usuários">
 
       <Filters
         perPage={perPage}
         setPerPage={setPerPage}
         search={search}
         setSearch={setSearch}
-        searchPlaceholder="Buscar pelo nome da categoria..."
+        searchPlaceholder="Buscar pelo nome do usuário..."
       />
 
       <Table>
         <Thead>
             <Th>ID</Th>
             <Th>Nome</Th>
-            <Th>Descrição</Th>
+            <Th>E-mail</Th>
             <Th>Ações</Th>
         </Thead>
         {loading ? 
@@ -55,20 +55,20 @@ export default function TabelaCategorias() {
         </Tbody> 
         :
         <Tbody>
-          {categorias.length != 0 ?
+          {usuarios.length != 0 ?
           <>
-            {categorias.map((cat) => (
-              <Tr key={cat.id}>
-                <Td className="text-[#111827]">{cat.id}</Td>
-                <Td>{cat.nome}</Td>
-                <Td>{cat.descricao}</Td>
+            {usuarios.map((user) => (
+              <Tr key={user.id}>
+                <Td className="text-[#111827]">{user.id}</Td>
+                <Td>{user.name}</Td>
+                <Td>{user.email}</Td>
                 <Td>N/A</Td>
               </Tr>
             ))}
           </>
           : 
             <Tr>
-              <Td colspan={4} className="text-[#111827] !text-center py-4">Não ha nenhuma categoria</Td>
+              <Td colspan={4} className="text-[#111827] !text-center py-4">Não ha nenhum usuario</Td>
             </Tr>
           }
         </Tbody>
@@ -76,12 +76,12 @@ export default function TabelaCategorias() {
       </Table>
 
       <Pagination
-        tituloDado="Categorias"
+        tituloDado="Usuários"
         currentPage={pagination.current_page}
         perPage={pagination.per_page}
         total={pagination.total}
         lastPage={pagination.last_page}
-        onPageChange={(page) => fetchCategorias(page)}
+        onPageChange={(page) => fetchUsuarios(page)}
       />
     </CardTable>
   );
