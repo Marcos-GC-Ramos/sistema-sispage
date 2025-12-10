@@ -1,0 +1,52 @@
+.tooltip {
+    height: 32px;
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 5;
+    bottom: 115%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* tooltips do add point funcionario de anexo de documento */
+.tooltip-anexo-motivo {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-anexo-motivo .tooltiptext-anexo-motivo {
+    visibility: hidden;
+    width: 250px;
+    position: absolute;
+    z-index: 9999;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-anexo-motivo:hover .tooltiptext-anexo-motivo {
+    visibility: visible;
+    opacity: 1;
+}

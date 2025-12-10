@@ -1,6 +1,7 @@
 import HeaderPage from "@/components/HeaderPage";
 import Breadcrumb from "@/components/BreadCrumb";
 import TabelaDashboards from "./components/TabelaDashboards";
+import Button from "@/components/buttons/Button";
 
 export default function DashboardsContent() {
   return (
@@ -14,7 +15,13 @@ export default function DashboardsContent() {
         />
 
         {/* Area para buttons de actions (Adicionar, Relatorios) */}
-        <div></div>
+        <Button
+           type="button"
+           size="md"
+           variant={`primary`}          
+         >
+           Novo Dashboard
+         </Button>
       </HeaderPage>
 
       <TabelaDashboards/>

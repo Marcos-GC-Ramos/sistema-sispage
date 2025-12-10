@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import api from "../../api/AxiosConfig";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 import apiRoutes from "@/api/ApiRoutes";
 import Image from "next/image";
 

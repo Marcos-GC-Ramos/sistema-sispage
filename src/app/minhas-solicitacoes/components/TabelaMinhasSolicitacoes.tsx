@@ -42,7 +42,6 @@ export default function TabelaMinhasSolicitacoes() {
             <Th>E-mail do Superior</Th>
             <Th>Status Superior e Suporte</Th>
             <Th>Data da Solicitação</Th>
-            <Th>Ações</Th>
         </Thead>
         {loading ? 
         <Tbody>
@@ -51,7 +50,6 @@ export default function TabelaMinhasSolicitacoes() {
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-10 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[300px] my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[300px] my-1"></div></Td>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
             </Tr>
@@ -74,7 +72,6 @@ export default function TabelaMinhasSolicitacoes() {
                   status suporte: {sol.status_suporte}
                 </Td>
                 <Td>{new Date(sol.updated_at).toLocaleDateString("pt-BR")}</Td>
-                <Td>N/A</Td>
               </Tr>
             ))}
           </>

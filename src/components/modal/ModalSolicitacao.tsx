@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import React from "react";
 import Input from "../input/Input";
-import Button from "../Button";
+import Button from "../buttons/Button";
 import api from "@/api/AxiosConfig";
 import Cookies from "js-cookie";
 import apiRoutes from "@/api/ApiRoutes";

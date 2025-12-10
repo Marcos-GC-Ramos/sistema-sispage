@@ -38,7 +38,7 @@ export function UsuariosHooks() {
   // Primeiro carregamento
   useEffect(() => {
     fetchUsuarios(1, perPage, search);
-  }, []);
+  }, [fetchUsuarios, search, perPage]);
 
   // Debounce search + perPage
   useEffect(() => {
@@ -47,7 +47,7 @@ export function UsuariosHooks() {
     }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage]);
+  }, [fetchUsuarios, search, perPage]);
 
 
   return {

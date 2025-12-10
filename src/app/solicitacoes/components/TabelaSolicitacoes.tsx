@@ -11,6 +11,7 @@ import Thead from "@/components/table/thead";
 import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
+import ButtonActions from "@/components/buttons/ButtonActions";
 
 export default function TabelaSolicitacoes() {
   const {
@@ -43,19 +44,24 @@ export default function TabelaSolicitacoes() {
             <Th>E-mail do Superior</Th>
             <Th>Status Superior e Suporte</Th>
             <Th>Data da Solicitação</Th>
-            <Th>Ações</Th>
+            <Th className="!text-center">Ações</Th>
         </Thead>
         {loading ? 
         <Tbody>
           {Array.from({ length: 10 }).map((_, i) => (
             <Tr key={i}>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-10 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[40px] my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[300px] my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[300px] my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
               <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
+              <Td>
+                <div className="w-full flex gap-2 items-center justify-center">
+                  <div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[33px] my-[11px]"></div>
+                  <div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[33px] my-[11px]"></div>
+                </div>
+              </Td>
             </Tr>
           ))}
         </Tbody> 
@@ -77,7 +83,20 @@ export default function TabelaSolicitacoes() {
                   status suporte: {sol.status_suporte}
                 </Td>
                 <Td>{new Date(sol.updated_at).toLocaleDateString("pt-BR")}</Td>
-                <Td>N/A</Td>
+                <Td>
+                  <div className="w-full flex gap-2 items-center justify-center">
+                    <ButtonActions
+                      acao="Editar"
+                      id={`btn-editar-${sol.id}`}
+                      onClick={() => console.log(sol.id)}
+                    />
+                    <ButtonActions
+                      acao="Excluir"
+                      id={`btn-excluir-${sol.id}`}
+                      onClick={() => console.log(sol.id)}
+                    />
+                  </div>
+                </Td>
               </Tr>
             ))}
           </>

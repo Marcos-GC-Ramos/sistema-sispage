@@ -1,12 +1,12 @@
 "use client";
-import { ReactNode, useEffect  } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 type ModalProps = {
   children: ReactNode;
   titulo?: string;
   isOpen: boolean;
   size?: "sm" | "md" | "lg" | "full";
-  onClose: () => void;
+  onClose?: () => void;
 };
 
 export default function Modal({
@@ -14,41 +14,92 @@ export default function Modal({
   titulo = "",
   isOpen,
   size = "md",
+  onClose,
 }: ModalProps) {
+  // controla montagem do componente (para permitir animação de saída)
+  const [isMounted, setIsMounted] = useState(isOpen);
+  // controla visibilidade (classe de entrada/saída)
+  const [visible, setVisible] = useState(isOpen);
+
+  // Duração da animação (deve bater com as classes do Tailwind abaixo)
+  const ANIMATION_DURATION = 300; // ms
+
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+      setIsMounted(true);
+      setVisible(false); // <- começa invisível
 
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setVisible(true); // <- entra animando
+        });
+      });
+    } else {
+      // inicia saída
+      setVisible(false);
+      // desbloqueia scroll depois que a animação terminar
+      const t = setTimeout(() => {
+        setIsMounted(false);
+        document.body.style.overflow = "";
+      }, ANIMATION_DURATION);
+      return () => clearTimeout(t);
+    }
+    // cleanup se desmontar por completo
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  // Se não estiver montado, não renderiza nada
+  if (!isMounted) return null;
 
   const sizeStyles =
     size === "sm"
-      ? "max-w-md justify-center items-center m-auto"
+      ? "max-w-md"
       : size === "lg"
-      ? "max-w-4xl justify-center items-center m-auto"
+      ? "max-w-4xl"
       : size === "full"
-      ? "max-w-full p-0! rounded-0!"
-      : "max-w-xl justify-center items-center m-auto"; // md padrão
-      
-  return (
-    <div className="overflow-y-hidden! fixed font-inter top-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full bg-[#00112F]/40 backdrop-blur-[5px]">
-        <div className={` ${sizeStyles} relative p-4 w-full h-full max-h-full flex`}>
-          <div className={` ${size == "full" ? sizeStyles : ""} relative bg-[#f8f8f8] rounded-[6px] px-4 py-2 md:px-5 md:py-3 flex flex-col justify-between w-full`}>
-            {titulo && (
-              <h3 className="text-md md:text-xl font-medium text-[#111827] mb-2 md:mb-4">{titulo}</h3>
-            )}
+      ? "max-w-full w-full h-[100dvh]"
+      : "max-w-xl"; // md padrão
 
-            {children}
-          </div>
+  return (
+    // container fixo full screen
+    <div
+      aria-hidden={!visible}
+      className="fixed inset-0 z-50 flex items-center justify-center"
+    >
+      {/* Backdrop */}
+      <div
+        // classes de transição do backdrop: fade in/out
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ease-out ${
+          visible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={onClose}
+      />
+
+      {/* Painel do modal - centralizado */}
+      <div
+        className={`relative z-50 w-full ${size === "full" ? "" : "px-4"} py-6 flex items-center justify-center overflow-y-auto`}
+      >
+        <div
+          // anima o painel: opacity + translateY + scale sutil
+          className={`mx-auto w-full ${sizeStyles} transform transition-all duration-300 ease-out
+            ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-98"}
+            bg-[#f8f8f8] shadow-lg ${size === "full" ? "" : "rounded-lg p-4 md:p-6"}`}
+          role="dialog"
+          aria-modal="true"
+        >
+          {titulo && (
+            <div className="mb-3">
+              <h3 className="text-md md:text-xl font-medium text-[#111827]">
+                {titulo}
+              </h3>
+            </div>
+          )}
+
+          {children}
         </div>
+      </div>
     </div>
   );
 }

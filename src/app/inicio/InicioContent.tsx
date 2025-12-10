@@ -1,7 +1,5 @@
 "use client";
 
-import Breadcrumb from "@/components/BreadCrumb";
-import HeaderPage from "@/components/HeaderPage";
 import { useInicioContext } from "@/context/InicioContext";
 import CardListagemPaineis from "@/components/card/CardListagemPaineis";
 import SeparatorDeshaboards from "@/components/Separator/SeparatorDashboards";
@@ -15,9 +13,7 @@ export default function InicioContent() {
 
   return (
     <>
-      <HeaderPage>
-        <Breadcrumb items={[{ label: "Início", href: "/inicio" }]} />
-
+      <CardListagemPaineis>
         <FiltroDashboards
           categorias={categorias}
           search={search}
@@ -25,9 +21,7 @@ export default function InicioContent() {
           categoriaSelecionada={categoriaSelecionada}
           setCategoriaSelecionada={setCategoriaSelecionada}
         />
-      </HeaderPage>
 
-      <CardListagemPaineis>
         {loading ? (
           <CarregandoDashboards carregando={loading} />
         ) : (

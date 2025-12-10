@@ -38,7 +38,8 @@ export function CategoriasHooks() {
   // Primeiro carregamento
   useEffect(() => {
     fetchCategorias(1, perPage, search);
-  }, []);
+  }, [fetchCategorias, perPage, search]);
+
 
   // Debounce search + perPage
   useEffect(() => {
@@ -47,7 +48,7 @@ export function CategoriasHooks() {
     }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage]);
+  }, [fetchCategorias, search, perPage]);
 
 
   return {

@@ -14,6 +14,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SISPAGE</title>
         <meta name="description" content="SISPAGE - Sistema de gerenciamento e organização de páginas."/>
+        <link rel="stylesheet" href="/css/buttons.css" />
+        <link rel="stylesheet" href="/css/tooltip.css" />
     </head>
     <body>
       <SeparateLayout>

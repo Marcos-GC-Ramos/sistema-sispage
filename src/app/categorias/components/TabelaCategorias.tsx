@@ -11,6 +11,7 @@ import Thead from "@/components/table/thead";
 import Tr from "@/components/table/tr";
 import Pagination from "@/components/table/pagination";
 import Filters from "@/components/table/filters";
+import ButtonActions from "@/components/buttons/ButtonActions";
 
 export default function TabelaCategorias() {
   const {
@@ -40,16 +41,21 @@ export default function TabelaCategorias() {
             <Th>ID</Th>
             <Th>Nome</Th>
             <Th>Descrição</Th>
-            <Th>Ações</Th>
+            <Th className="!text-center">Ações</Th>
         </Thead>
         {loading ? 
         <Tbody>
           {Array.from({ length: 10 }).map((_, i) => (
             <Tr key={i}>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-50 my-1"></div></Td>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-100 my-1"></div></Td>
-              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-24 my-1"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[40px] my-[11px]"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-50 my-[11px]"></div></Td>
+              <Td><div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-100 my-[11px]"></div></Td>
+              <Td>
+                <div className="w-full flex gap-2 items-center justify-center">
+                  <div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[33px] my-[11px]"></div>
+                  <div className="animate-pulse h-2.5 bg-gray-300 rounded-full w-[33px] my-[11px]"></div>
+                </div>
+              </Td>
             </Tr>
           ))}
         </Tbody> 
@@ -62,7 +68,20 @@ export default function TabelaCategorias() {
                 <Td className="text-[#111827]">{cat.id}</Td>
                 <Td>{cat.nome}</Td>
                 <Td>{cat.descricao}</Td>
-                <Td>N/A</Td>
+                <Td>
+                  <div className="w-full flex gap-2 items-center justify-center">
+                    <ButtonActions
+                      acao="Editar"
+                      id={`btn-editar-${cat.id}`}
+                      onClick={() => console.log("editar!")}
+                    />
+                    <ButtonActions
+                      acao="Excluir"
+                      id={`btn-excluir-${cat.id}`}
+                      onClick={() => console.log(cat.id)}
+                    />
+                  </div>
+                </Td>
               </Tr>
             ))}
           </>

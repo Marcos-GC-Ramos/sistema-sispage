@@ -40,7 +40,7 @@ function useSolicitacoesBase(
 
   useEffect(() => {
     fetchSolicitacoes(1, perPage, search);
-  }, []);
+  }, [fetchSolicitacoes, search, perPage]);
 
   useEffect(() => {
     const delay = setTimeout(() => {
@@ -48,7 +48,7 @@ function useSolicitacoesBase(
     }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage]);
+  }, [fetchSolicitacoes, search, perPage]);
 
   return {
     solicitacoes,

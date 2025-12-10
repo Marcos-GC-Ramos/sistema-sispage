@@ -9,6 +9,7 @@ export default function ConfigUser() {
 
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleLogout = async () => {
   
     try {

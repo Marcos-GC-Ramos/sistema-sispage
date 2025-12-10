@@ -26,13 +26,13 @@ export default function Filters({
   ];
 
   return (
-    <div className="w-full flex justify-between gap-4 mb-5 !text-[#111827]">
+    <div className="w-full flex justify-between gap-4 !text-[#111827] mb-[15px]">
       <Select
         id="qtdPorPagina"
         options={qtdPorPagina}
         value={String(perPage)}
         onChange={(e) => setPerPage(Number(e.target.value))}
-        className="w-[50px]! text-center!"
+        className="w-[75px]! text-center!"
       />
 
       <div className="w-[300px]">

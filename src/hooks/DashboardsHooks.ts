@@ -38,7 +38,7 @@ export function DashboardsHooks() {
   // Primeiro carregamento
   useEffect(() => {
     fetchDashboards(1, perPage, search);
-  }, []);
+  }, [fetchDashboards, search, perPage]);
 
   // Debounce search + perPage
   useEffect(() => {
@@ -47,7 +47,7 @@ export function DashboardsHooks() {
     }, 600);
 
     return () => clearTimeout(delay);
-  }, [search, perPage]);
+  }, [fetchDashboards, search, perPage]);
 
 
   return {

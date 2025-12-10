@@ -56,7 +56,7 @@ export default function Pagination({
   const end = Math.min(currentPage * perPage, total);
 
   return (
-    <div className="flex flex-col items-center text-[#111827] md:flex-row md:justify-between gap-4 pt-[15px] pb-0">
+    <div className="flex flex-col items-center text-[#111827] md:flex-row md:justify-between gap-4 mt-[15px]">
 
       <span className="text-[13px] text-[#4B5563]">
         Exibindo{" "}

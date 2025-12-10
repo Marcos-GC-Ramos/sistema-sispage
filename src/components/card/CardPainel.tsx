@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import React from "react";
-import Button from "../Button";
+import Button from "../buttons/Button";
 import PointStatus from "../point-status/PointStatus";
 import Modal from "../modal/Modal";
 import ModalSolicitacao from "../modal/ModalSolicitacao";
@@ -72,7 +72,7 @@ export default function CardPainel({
         )}
 
         <div className="lg:max-w-[310px]">
-          <h2 className="font-normal text-white">{titulo}</h2>
+          <h1 className="font-normal text-white !text-[14px] my-1">{titulo}</h1>
 
           <div className="flex justify-between gap-1 mt-2 flex-wrap items-center">
             <div className="flex gap-1">
