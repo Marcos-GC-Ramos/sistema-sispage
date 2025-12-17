@@ -16,7 +16,7 @@ export default function Alert({ mensagem, status, onClose }: AlertProps) {
   const ANIMATION_DURATION = 200;
   const AUTO_CLOSE_TIME = 1000;
 
-  // controla abertura/fechamento
+  // controla abertura / fechamento
   useEffect(() => {
     if (mensagem) {
       setIsMounted(true);
@@ -31,15 +31,15 @@ export default function Alert({ mensagem, status, onClose }: AlertProps) {
       }, AUTO_CLOSE_TIME);
 
       return () => clearTimeout(timer);
-    } else {
-      setVisible(false);
-      const t = setTimeout(() => {
-        setIsMounted(false);
-      }, ANIMATION_DURATION);
-
-      return () => clearTimeout(t);
     }
-  }, [mensagem]);
+
+    setVisible(false);
+    const t = setTimeout(() => {
+      setIsMounted(false);
+    }, ANIMATION_DURATION);
+
+    return () => clearTimeout(t);
+  }, [mensagem, AUTO_CLOSE_TIME, ANIMATION_DURATION]);
 
   // dispara onClose só depois da animação
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Alert({ mensagem, status, onClose }: AlertProps) {
       const t = setTimeout(onClose, ANIMATION_DURATION);
       return () => clearTimeout(t);
     }
-  }, [visible]);
+  }, [visible, mensagem, onClose, ANIMATION_DURATION]);
 
   if (!isMounted) return null;
 

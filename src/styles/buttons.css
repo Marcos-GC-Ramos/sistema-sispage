@@ -1,0 +1,129 @@
+.btn{
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 125px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 20px 5px 20px;
+    line-height: 1.25rem;
+    font-family: var(--font-padrao);
+}
+
+.btn-danger{
+    color: #FFFFFF;
+    background: #DC2626;
+    border-color: #DC2626;
+}
+
+.btn-danger:hover{
+    background: #464646;
+    border-color: #464646;
+}
+
+.btn-primary{
+    color: #FFFFFF;
+    background: #1D4ED7;
+    border-color: #1D4ED7;
+}
+
+.btn-primary:hover{
+    background: #4878FF;
+    border-color: #4878FF;
+}
+
+.btn-success{
+    color: #FFFFFF;
+    background: #2DB059;
+    border-color: #2DB059;
+}
+
+.btn-success:hover{
+    background: #36CF6A;
+    border-color: #36CF6A;
+}
+
+.btn-light{
+    color: var(--cor--primaria);
+    background: #FFFFFF;
+    border-color: #464646;
+}
+
+.btn-light:hover{
+    color: #FFFFFF;
+    background: #464646;
+}
+
+.btn-warning{
+    color: #FFFFFF;
+    background: #BA7B00;
+    border-color: #BA7B00;
+}
+
+.btn-warning:hover{
+    background: #464646;
+    border-color: #464646;
+}
+
+.btn-actions {
+    padding: 0;
+    width: 33px;
+    height: 33px;
+    border: 1px solid;
+    border-radius: 6px;
+    background: #E3E3E366;
+
+    img {
+        margin: auto;
+        width: 15px;
+    }
+}
+
+.btn-excluir{
+    border-color: #E6394680;
+}
+
+.btn-excluir:hover{
+    background: #E6394680;
+}
+
+.btn-editar{
+    border-color: #F9984180;
+}
+
+.btn-editar:hover{
+    background: #F9984180;
+}
+
+.btn-visualizar, .btn-validar{
+    border-color: #4196F980;
+}
+
+.btn-visualizar:hover, .btn-validar:hover{
+    background: #4196F980;
+}
+
+.btn-pdf{
+    border-color: #7B7B7B80;
+}
+
+.btn-pdf:hover{
+    background: #bbbbbb;
+}
+
+.btn-confirmar{
+    border-color: #99ECBE;
+}
+
+.btn-confirmar:hover{
+    background: #CFFFD6;
+}
+
+.btn-disabled {
+    background-color: #464947 !important;
+    border-color: #464947 !important;
+}
+
+.btn-disabled:hover {
+    background-color: #464947 !important;
+    border-color: #464947 !important;
+}

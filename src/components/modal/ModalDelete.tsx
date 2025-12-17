@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Button from "../buttons/Button";
 import api from "@/api/AxiosConfig";
+import { AxiosError } from "axios";
 
 interface ModalDeleteProps {
   titulo: string;
@@ -42,10 +43,14 @@ export default function ModalDelete({
       if (setFetch) setFetch();
 
       onSuccess(); // 🔥 só avisa o pai
-    } catch (error: any) {
-      if (error.name === "CanceledError") return;
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        if (error.code === "ERR_CANCELED") return;
 
-      console.error(error);
+        console.error(error.response?.data || error.message);
+      } else {
+        console.error(error);
+      }
     } finally {
       setCarregando(false);
     }
@@ -67,7 +72,7 @@ export default function ModalDelete({
       >
         <div className="m-auto max-w-[313px] py-[25px] pt-[40px]">
           <h1 className="titulo-deletar text-[20px] text-[#001B38] mb-[18px]">
-            Excluir {titulo} "{valor}"?
+            Excluir {titulo} &quot;{valor}&quot;?
           </h1>
 
           <p className="leading-[25px] text-[18px] text-[#757575]">
