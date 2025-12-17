@@ -23,9 +23,9 @@ export default function Button({
 
   const variantStyles =
     variant === "primary"
-      ? "text-white bg-blue-700 border-blue-700 hover:border-blue-800 hover:bg-blue-800 focus:ring-[#4285F4]/50"
+      ? "text-white bg-[#174384] hover:bg-[#13315D] border-[#174384] hover:border-[#13315D] focus:ring-[#4285F4]/50"
       : variant === "red"
-      ? "text-white bg-red-700 border-red-700 hover:border-red-800 hover:bg-red-800 focus:ring-red-300"
+      ? "text-white bg-[#DC2626] border-[#DC2626] hover:border-red-800 hover:bg-red-800 focus:ring-red-300"
       : variant === "green"
       ? "text-white bg-green-700 border-green-700 hover:border-green-800 hover:bg-green-800 focus:ring-green-300"
       : variant === "yellow"

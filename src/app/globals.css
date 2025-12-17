@@ -88,6 +88,23 @@ html, body, main {
   background-position: center;
 }
 
+.titulo-deletar {
+    position: relative;
+}
+
+.titulo-deletar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -45px;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    background-image: url('/img/icons/icon-modal-delete.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 /*  Tablet  */
 @media (min-width: 768px) {}
 

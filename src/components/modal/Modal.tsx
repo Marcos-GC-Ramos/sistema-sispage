@@ -22,7 +22,7 @@ export default function Modal({
   const [visible, setVisible] = useState(isOpen);
 
   // Duração da animação (deve bater com as classes do Tailwind abaixo)
-  const ANIMATION_DURATION = 300; // ms
+  const ANIMATION_DURATION = 200; // ms
 
   useEffect(() => {
     if (isOpen) {
@@ -83,14 +83,14 @@ export default function Modal({
       >
         <div
           // anima o painel: opacity + translateY + scale sutil
-          className={`mx-auto w-full ${sizeStyles} transform transition-all duration-300 ease-out
+          className={`relative mx-auto w-full ${sizeStyles} transform transition-all duration-300 ease-out
             ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-98"}
-            bg-[#f8f8f8] shadow-lg ${size === "full" ? "" : "rounded-lg p-4 md:p-6"}`}
+            bg-[#f8f8f8] shadow-lg ${size === "full" ? "" : "rounded-xl"}`}
           role="dialog"
           aria-modal="true"
         >
           {titulo && (
-            <div className="mb-3">
+            <div className="p-4 md:p-6 !pb-0">
               <h3 className="text-md md:text-xl font-medium text-[#111827]">
                 {titulo}
               </h3>

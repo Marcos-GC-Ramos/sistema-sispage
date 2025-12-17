@@ -88,7 +88,7 @@ export default function ModalSolicitacao({
 
   return (
     <>
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 font-inter">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 font-inter p-4 md:p-6">
       <div className="flex flex-col justify-center gap-2">
         <h1 className="text-sm md:text-[15px] text-[#111827] font-regular">
           Informe o e-mail do superior responsável pelos dados do dashboard:
